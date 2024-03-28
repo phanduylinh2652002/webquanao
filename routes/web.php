@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('frontend/index');
 });
-
+Route::get('/login', 'Auth\LoginController@index');
+Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::get('/register', 'Auth\RegisterController@index');
+Route::post('/register', 'Auth\RegisterController@register')->name('register');
+Route::get('logout', 'Auth\LoginController@logout');
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('dashboard', 'admin\AdminController@index');
+    Route::get('dashboard', 'admin\AdminController@index') ->name('dashboard');
     Route::resource('category', 'admin\CategoryController');
     Route::resource('product', 'admin\ProductController');
     Route::resource('size', 'admin\SizeController');
