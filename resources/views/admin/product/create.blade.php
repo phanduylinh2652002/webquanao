@@ -56,7 +56,7 @@
           @error('product_color')
           <div class="text-danger">{{ $message }}</div>
         @enderror
-        <select name="size_id[]" class="form-control border">
+        <select name="size_id" class="form-control border">
           <option value="">Chọn size</option>
           @foreach($sizes as $size)
               <option value="{{$size->size_id}}">{{$size->size_name}}</option>
