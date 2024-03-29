@@ -50,7 +50,7 @@
                         </td>
                         <td class="align-middle text-center text-sm d-flex justify-content-center">
                           <a href="{{route('product.show', $p->product_id)}}" class="btn btn-primary" style="margin-right: 5px">Xem</a>
-                          <a href="" class="btn btn-primary">Sửa</a>
+                          <a href="{{route('product.edit', $p->product_id)}}" class="btn btn-primary">Sửa</a>
                           <form action="" method="post" style="margin-left: 5px">
                             @method('DELETE')
                             @csrf
@@ -64,7 +64,7 @@
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-center mt-1">
-                  
+                  {{$products->links()}}
                 </div>
               </div>
             </div>

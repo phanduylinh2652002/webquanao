@@ -30,7 +30,7 @@ class ProductRequest extends FormRequest
             'product_discount' => 'required',
             'product_image' => 'sometimes|required_if:image, ""|image|max:2048',
             'product_color' => 'required',
-            'size' => 'required',
+            'size_id' => 'required',
             'product_description' => 'required',
             'product_quantity' => 'required',
             'category_id' => 'required'
