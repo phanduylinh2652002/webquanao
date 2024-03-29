@@ -39,7 +39,7 @@ class ProductController extends Controller
             'product_discount' => $request->product_discount,
             'product_image' => $new_name,
             'product_color' => $request->product_color,
-            'product_size' => $request->product_size,
+            'size_id' => $request->size_id,
             'product_quantity' => $request->product_quantity,
             'product_description' => $request->product_description,
         ]);
@@ -54,7 +54,8 @@ class ProductController extends Controller
     }
     public function edit(Product $product){
         $categories = Category::all();
-        return view('admin.product.edit', compact('categories', 'product'));
+        $sizes = Size::all();
+        return view('admin.product.edit', compact('categories', 'product', 'sizes'));
     }
     public function update(Product $product, ProductRequest $request){
         $image_name = $request->hidden_image;
@@ -69,16 +70,10 @@ class ProductController extends Controller
             'product_price' => $request->product_price,
             'product_discount' => $request->product_discount,
             'product_image' => $image_name,
-            'product_place' => $request->product_place,
-            'product_vehicle' => $request->product_vehicle,
-            'product_locationStart' => $request->product_locationStart,
-            'product_locationEnd' => $request->product_locationEnd,
-            'product_quantytiDate' => $request->product_quantytiDate,
-            'product_dateStart' => $request->product_dateStart,
-            'product_dateEnd' => $request->product_dateEnd,
+            'product_color' => $request->product_color,
+            'size_id' => $request->size_id,
+            'product_quantity' => $request->product_quantity,
             'product_description' => $request->product_description,
-            'product_trip' => $request->product_trip,
-            'productGuide_id' => $request->productGuide_id
         );
         
         $product->update($form_data);
